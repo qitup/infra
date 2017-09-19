@@ -1,0 +1,32 @@
+debug = false
+checkNewVersion = true
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
+
+# Enable web backend
+[web]
+address = ":8080"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[retry]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "queueitup.ca"
+watch = true
+exposedbydefault = false
+
+[acme]
+email = "trevorfoster19@gmail.com"
+storage = "acme.json"
+entryPoint = "https"
+dnsProvider = "route53"
+OnHostRule = true
