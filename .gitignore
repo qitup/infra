@@ -76,3 +76,5 @@ bin/*
 
 .kitchen/
 .kitchen.local.yml
+
+acme.json
