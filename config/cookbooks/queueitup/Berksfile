@@ -2,5 +2,6 @@ source "https://supermarket.chef.io"
 
 cookbook 'apt'
 cookbook 'docker'
+cookbook 'hostname'
 
 metadata
