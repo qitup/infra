@@ -1,0 +1,4 @@
+require 'roundsman/capistrano'
+
+load 'deploy'
+load 'config/deploy' # remove this line to skip loading any of the default tasks

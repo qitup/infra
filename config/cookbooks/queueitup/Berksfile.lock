@@ -1,0 +1,16 @@
+DEPENDENCIES
+  apt
+  chef-apt-docker
+  docker
+  queueitup
+    path: .
+    metadata: true
+
+GRAPH
+  apt (6.1.4)
+  chef-apt-docker (2.0.3)
+  docker (2.16.0)
+  queueitup (0.0.1)
+    apt (>= 0.0.0)
+    chef-apt-docker (>= 0.0.0)
+    docker (>= 0.0.0)

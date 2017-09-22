@@ -3,10 +3,6 @@ checkNewVersion = true
 logLevel = "ERROR"
 defaultEntryPoints = ["https","http"]
 
-# Enable web backend
-[web]
-address = ":8080"
-
 [entryPoints]
   [entryPoints.http]
   address = ":80"
@@ -30,3 +26,7 @@ storage = "acme.json"
 entryPoint = "https"
 dnsProvider = "route53"
 OnHostRule = true
+
+# Enable web backend
+[web]
+address = ":8080"
