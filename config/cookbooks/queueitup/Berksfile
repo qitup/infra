@@ -1,6 +1,5 @@
 source "https://supermarket.chef.io"
 
-cookbook 'chef-apt-docker'
 cookbook 'apt'
 cookbook 'docker'
 
