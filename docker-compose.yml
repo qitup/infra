@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  api:
+    image: qitup_api:latest
+    build:
+      context: ../api
+
+    restart: always
+
+    ports:
+      - "8080:8080"
+
+    labels:
+      - traefik.backend=api
+      - traefik.frontend.rule=Host:api.queueitup.ca
+      - traefik.docker.network=proxy
+      - traefik.port=443
+    networks:
+      - internal
+      - proxy
+
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+
+    volumes:
+      - ./mongo:/data/db
+
+    ports:
+      - "27017:27017"
+
+    networks:
+      - internal
+
+  redis:
+    image: redis:alpine
+    restart: always
+
+    ports:
+      - "6379:6379"
+
+    networks:
+      - internal
+
+networks:
+  proxy:
+    external: true
+  internal:
+    external: false

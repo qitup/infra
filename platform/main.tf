@@ -52,22 +52,3 @@ module "network" {
   sub_domain      = "${var.sub_domain}"
   route_zone_id   = "${terraform_remote_state.aws_global.output.zone_id}"
 }
-
-module "data" {
-  source = "../../../modules/aws/data"
-
-  name               = "${var.name}"
-  region             = "${var.region}"
-  vpc_id             = "${module.network.vpc_id}"
-  vpc_cidr           = "${var.vpc_cidr}"
-  private_subnet_ids = "${module.network.private_subnet_ids}"
-  public_subnet_ids  = "${module.network.public_subnet_ids}"
-  ssl_cert           = "${var.vault_ssl_cert}"
-  ssl_key            = "${var.vault_ssl_key}"
-  key_name           = "${aws_key_pair.site_key.key_name}"
-  atlas_username     = "${var.atlas_username}"
-  atlas_environment  = "${var.atlas_environment}"
-  atlas_token        = "${var.atlas_token}"
-  sub_domain         = "${var.sub_domain}"
-  route_zone_id      = "${terraform_remote_state.aws_global.output.zone_id}"
-}
