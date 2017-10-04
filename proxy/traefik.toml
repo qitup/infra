@@ -16,7 +16,7 @@ defaultEntryPoints = ["https","http"]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "queueitup.ca"
+domain = "qitup.ca"
 watch = true
 exposedbydefault = false
 

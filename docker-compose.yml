@@ -9,13 +9,18 @@ services:
     restart: always
 
     ports:
-      - "8080:8080"
+      - "8081:8081"
+
+    environment:
+      SPOTIFY_ID:
+      SPOTIFY_SECRET:
 
     labels:
+      - traefik.enable=true
       - traefik.backend=api
-      - traefik.frontend.rule=Host:api.queueitup.ca
+      - traefik.frontend.rule=Host:api.qitup.ca
       - traefik.docker.network=proxy
-      - traefik.port=443
+      - traefik.port=8081
     networks:
       - internal
       - proxy

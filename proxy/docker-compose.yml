@@ -9,13 +9,12 @@ services:
       - 443:443
       - 8080:8080
     networks:
-      - web
+      - proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/traefik.toml
-      - ./acme.json:/acme.json
-    container_name: traefik
+      - ./acme:/acme
 
 networks:
-  web:
+  proxy:
     external: true
