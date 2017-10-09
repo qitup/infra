@@ -12,8 +12,10 @@ services:
       - "8081:8081"
 
     environment:
+      SIGNING_KEY:
       SPOTIFY_ID:
       SPOTIFY_SECRET:
+      SESSION_SECRET:
 
     labels:
       - traefik.enable=true
