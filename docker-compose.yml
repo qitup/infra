@@ -1,36 +1,6 @@
 version: "3"
 
 services:
-  api:
-    image: qitup_api:latest
-    build:
-      context: ../api
-
-    restart: always
-
-    ports:
-      - "8081:8081"
-
-    environment:
-      SIGNING_KEY:
-      SPOTIFY_ID:
-      SPOTIFY_SECRET:
-      SESSION_SECRET:
-
-    labels:
-      - traefik.enable=true
-      - traefik.backend=api
-      - traefik.frontend.rule=Host:api.qitup.ca
-      - traefik.docker.network=proxy
-      - traefik.port=8081
-    networks:
-      - internal
-      - proxy
-
-    depends_on:
-      - mongodb
-      - redis
-
   mongodb:
     image: mongo:latest
     restart: always
