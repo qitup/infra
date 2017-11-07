@@ -1,4 +1,4 @@
-debug = false
+debug = true
 checkNewVersion = true
 logLevel = "ERROR"
 defaultEntryPoints = ["https","http"]
@@ -22,10 +22,15 @@ exposedbydefault = false
 
 [acme]
 email = "trevorfoster19@gmail.com"
-storage = "acme.json"
+storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 dnsProvider = "route53"
 OnHostRule = true
+delayDontCheckDNS = 0
+
+[[acme.domains]]
+  main = "qitup.ca"
+  sans = ["api.qitup.ca"]
 
 # Enable web backend
 [web]
