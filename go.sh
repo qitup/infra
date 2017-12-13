@@ -13,4 +13,4 @@ source ~/.spotify/creds.conf
 
 export SIGNING_KEY=$(cat ~/go/src/dubclan/api/keys/sign-${ENV})
 
-docker-compose -p qitup -f docker-compose.yml -f ../api/docker-compose.yml "$@"
+docker-compose -p qitup -f docker-compose.yml -f ../api/docker-compose.yml -f ../site/docker-compose.yml "$@"
